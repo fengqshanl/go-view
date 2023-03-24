@@ -55,9 +55,9 @@ fi
 
     for url in ${url_arr[@]}
     do
-        sshpass -p $pd ssh pms@192.168.11.$url '
-            cd /install/goview/static/;
-            rm -rf /install/goview/static/*;
+        sshpass -p $pd ssh pi@192.168.10.$url '
+            cd /home/pi/goview/static/;
+            rm -rf /home/pi/goview/static/*;
             exit;
         '
         # sshpass -p $pd ssh pms@192.168.11.$url '
@@ -66,8 +66,8 @@ fi
         #     exit;
         # '
         echo "正在向 192.168.11.$url 传输..."
-    #    sshpass -p $pd scp -q -r ../dist/* pi@192.168.11.$url:/home/pi/goview/static/
-        sshpass -p $pd scp -q -r ../dist/* pms@192.168.11.$url:/install/goview/static/
+        sshpass -p $pd scp -q -r ../dist/* pi@192.168.10.$url:/home/pi/goview/static/
+    #    sshpass -p $pd scp -q -r ../dist/* pms@192.168.11.$url:/install/goview/static/
         echo "192.168.11.$url 传输完成!"
     done
 
